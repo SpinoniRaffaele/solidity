@@ -1,8 +1,9 @@
-require("@nomiclabs/hardhat-waffle");
 require("hardhat-gas-reporter");
 require("@nomiclabs/hardhat-etherscan");
+require("@nomicfoundation/hardhat-chai-matchers");
 require("dotenv").config();
 require("solidity-coverage");
+require("@nomiclabs/hardhat-ethers");
 require("hardhat-deploy");
 
 module.exports = {
