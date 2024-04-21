@@ -1,0 +1,394 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "NftMarketPlace_TransferFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NftMarketplace_AlreadyListed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NftMarketplace_NoProceeds",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NftMarketplace_NotApprovedForMarketplace",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NftMarketplace_NotListed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NftMarketplace_NotOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NftMarketplace_PriceMustBeAboveZero",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "NftMarketplace_PticeNotMet",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "ItemBought",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ItemCanceled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "ItemListed",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyItem",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelListing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getListing",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct NftMarketplace.Listing",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        }
+      ],
+      "name": "getProceeds",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "listItem",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "nftAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "newPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateListing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawProceeds",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x722d0b5aea909738bea6739c9fb2061e745aae6c54ae4d1e8836b3791dfe53d2",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "transactionIndex": 0,
+    "gasUsed": "1213428",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xc4e55e02927499f0bc257f82a354f419492b074d3d2bd83bfc575d45a735c9ef",
+    "transactionHash": "0x722d0b5aea909738bea6739c9fb2061e745aae6c54ae4d1e8836b3791dfe53d2",
+    "logs": [],
+    "blockNumber": 1,
+    "cumulativeGasUsed": "1213428",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "bd0be53c7abf2cce475ecd371aeaa073",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"NftMarketPlace_TransferFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NftMarketplace_AlreadyListed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NftMarketplace_NoProceeds\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NftMarketplace_NotApprovedForMarketplace\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NftMarketplace_NotListed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NftMarketplace_NotOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NftMarketplace_PriceMustBeAboveZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"NftMarketplace_PticeNotMet\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"ItemBought\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ItemCanceled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"ItemListed\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"buyItem\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"cancelListing\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getListing\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"}],\"internalType\":\"struct NftMarketplace.Listing\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"}],\"name\":\"getProceeds\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"listItem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"newPrice\",\"type\":\"uint256\"}],\"name\":\"updateListing\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawProceeds\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/NftMarketplace.sol\":\"NftMarketplace\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (token/ERC721/IERC721.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../../utils/introspection/IERC165.sol\\\";\\n\\n/**\\n * @dev Required interface of an ERC721 compliant contract.\\n */\\ninterface IERC721 is IERC165 {\\n    /**\\n     * @dev Emitted when `tokenId` token is transferred from `from` to `to`.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);\\n\\n    /**\\n     * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.\\n     */\\n    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);\\n\\n    /**\\n     * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.\\n     */\\n    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);\\n\\n    /**\\n     * @dev Returns the number of tokens in ``owner``'s account.\\n     */\\n    function balanceOf(address owner) external view returns (uint256 balance);\\n\\n    /**\\n     * @dev Returns the owner of the `tokenId` token.\\n     *\\n     * Requirements:\\n     *\\n     * - `tokenId` must exist.\\n     */\\n    function ownerOf(uint256 tokenId) external view returns (address owner);\\n\\n    /**\\n     * @dev Safely transfers `tokenId` token from `from` to `to`.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must exist and be owned by `from`.\\n     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\\n     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;\\n\\n    /**\\n     * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients\\n     * are aware of the ERC721 protocol to prevent tokens from being forever locked.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must exist and be owned by `from`.\\n     * - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}.\\n     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Transfers `tokenId` token from `from` to `to`.\\n     *\\n     * WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721\\n     * or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must\\n     * understand this adds an external call which potentially creates a reentrancy vulnerability.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must be owned by `from`.\\n     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Gives permission to `to` to transfer `tokenId` token to another account.\\n     * The approval is cleared when the token is transferred.\\n     *\\n     * Only a single account can be approved at a time, so approving the zero address clears previous approvals.\\n     *\\n     * Requirements:\\n     *\\n     * - The caller must own the token or be an approved operator.\\n     * - `tokenId` must exist.\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Approve or remove `operator` as an operator for the caller.\\n     * Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.\\n     *\\n     * Requirements:\\n     *\\n     * - The `operator` cannot be the caller.\\n     *\\n     * Emits an {ApprovalForAll} event.\\n     */\\n    function setApprovalForAll(address operator, bool approved) external;\\n\\n    /**\\n     * @dev Returns the account approved for `tokenId` token.\\n     *\\n     * Requirements:\\n     *\\n     * - `tokenId` must exist.\\n     */\\n    function getApproved(uint256 tokenId) external view returns (address operator);\\n\\n    /**\\n     * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.\\n     *\\n     * See {setApprovalForAll}\\n     */\\n    function isApprovedForAll(address owner, address operator) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[EIP].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\"},\"contracts/NftMarketplace.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.7;\\r\\n\\r\\nimport \\\"@openzeppelin/contracts/token/ERC721/IERC721.sol\\\";\\r\\n\\r\\nerror NftMarketplace_PriceMustBeAboveZero();\\r\\nerror NftMarketplace_NotApprovedForMarketplace();\\r\\nerror NftMarketplace_AlreadyListed();\\r\\nerror NftMarketplace_NotOwner();\\r\\nerror NftMarketplace_NotListed();\\r\\nerror NftMarketplace_PticeNotMet(\\r\\n    address nftAddress,\\r\\n    uint256 tokenId,\\r\\n    uint256 price\\r\\n);\\r\\nerror NftMarketplace_NoProceeds();\\r\\nerror NftMarketPlace_TransferFailed();\\r\\n\\r\\ncontract NftMarketplace {\\r\\n    struct Listing {\\r\\n        uint256 price;\\r\\n        address seller;\\r\\n    }\\r\\n\\r\\n    event ItemListed(\\r\\n        address indexed seller,\\r\\n        address indexed nftAddress,\\r\\n        uint256 indexed tokenId,\\r\\n        uint256 price\\r\\n    );\\r\\n\\r\\n    event ItemBought(\\r\\n        address indexed buyer,\\r\\n        address indexed nftAddress,\\r\\n        uint256 price\\r\\n    );\\r\\n\\r\\n    event ItemCanceled(\\r\\n        address indexed seller,\\r\\n        address indexed nftAddress,\\r\\n        uint256 tokenId\\r\\n    );\\r\\n\\r\\n    //nft address -> tokenId -> listing infos\\r\\n    mapping(address => mapping(uint256 => Listing)) s_listing;\\r\\n\\r\\n    //buyer address => the total value of his sold items\\r\\n    mapping(address => uint256) private s_proceeds;\\r\\n\\r\\n    modifier notListed(address nftAddress, uint256 tokenId) {\\r\\n        Listing memory listing = s_listing[nftAddress][tokenId];\\r\\n        if (listing.price > 0) {\\r\\n            revert NftMarketplace_AlreadyListed();\\r\\n        }\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier isListed(address nftAddress, uint256 tokenId) {\\r\\n        Listing memory listing = s_listing[nftAddress][tokenId];\\r\\n        if (listing.price <= 0) {\\r\\n            revert NftMarketplace_NotListed();\\r\\n        }\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier isOwner(\\r\\n        address nftAddress,\\r\\n        uint256 tokenId,\\r\\n        address spender\\r\\n    ) {\\r\\n        IERC721 nft = IERC721(nftAddress);\\r\\n        address owner = nft.ownerOf(tokenId);\\r\\n        if (spender != owner) {\\r\\n            revert NftMarketplace_NotOwner();\\r\\n        }\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    function listItem(\\r\\n        address nftAddress,\\r\\n        uint256 tokenId,\\r\\n        uint256 price\\r\\n    )\\r\\n        external\\r\\n        notListed(nftAddress, tokenId)\\r\\n        isOwner(nftAddress, tokenId, msg.sender)\\r\\n    {\\r\\n        if (price <= 0) {\\r\\n            revert NftMarketplace_PriceMustBeAboveZero();\\r\\n        }\\r\\n\\r\\n        // we the NFT interface to play with the getApproved\\r\\n        // (an item approved is listed in the marketplace)\\r\\n        IERC721 nft = IERC721(nftAddress);\\r\\n        if (nft.getApproved(tokenId) != address(this)) {\\r\\n            revert NftMarketplace_NotApprovedForMarketplace();\\r\\n        }\\r\\n        s_listing[nftAddress][tokenId] = Listing(price, msg.sender);\\r\\n        emit ItemListed(msg.sender, nftAddress, tokenId, price);\\r\\n    }\\r\\n\\r\\n    function buyItem(\\r\\n        address nftAddress,\\r\\n        uint256 tokenId\\r\\n    ) external payable isListed(nftAddress, tokenId) {\\r\\n        Listing memory listedItem = s_listing[nftAddress][tokenId];\\r\\n        if (msg.value < listedItem.price) {\\r\\n            revert NftMarketplace_PticeNotMet(\\r\\n                nftAddress,\\r\\n                tokenId,\\r\\n                listedItem.price\\r\\n            );\\r\\n        }\\r\\n        s_proceeds[listedItem.seller] =\\r\\n            s_proceeds[listedItem.seller] +\\r\\n            msg.value;\\r\\n        delete (s_listing[nftAddress][tokenId]);\\r\\n        IERC721(nftAddress).safeTransferFrom(\\r\\n            listedItem.seller,\\r\\n            msg.sender,\\r\\n            tokenId\\r\\n        );\\r\\n        emit ItemBought(msg.sender, nftAddress, listedItem.price);\\r\\n    }\\r\\n\\r\\n    function cancelListing(\\r\\n        address nftAddress,\\r\\n        uint256 tokenId\\r\\n    )\\r\\n        external\\r\\n        isOwner(nftAddress, tokenId, msg.sender)\\r\\n        isListed(nftAddress, tokenId)\\r\\n    {\\r\\n        delete (s_listing[nftAddress][tokenId]);\\r\\n        emit ItemCanceled(msg.sender, nftAddress, tokenId);\\r\\n    }\\r\\n\\r\\n    function updateListing(\\r\\n        address nftAddress,\\r\\n        uint256 tokenId,\\r\\n        uint256 newPrice\\r\\n    ) external isListed(nftAddress, tokenId) {\\r\\n        s_listing[nftAddress][tokenId].price = newPrice;\\r\\n        emit ItemListed(msg.sender, nftAddress, tokenId, newPrice);\\r\\n    }\\r\\n\\r\\n    function withdrawProceeds() external {\\r\\n        uint256 proceeds = s_proceeds[msg.sender];\\r\\n        if (proceeds <= 0) {\\r\\n            revert NftMarketplace_NoProceeds();\\r\\n        }\\r\\n        s_proceeds[msg.sender] = 0;\\r\\n\\r\\n        (bool success, ) = payable(msg.sender).call{value: proceeds}(\\\"\\\");\\r\\n        if (!success) {\\r\\n            revert NftMarketPlace_TransferFailed();\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function getListing(\\r\\n        address nftAddress,\\r\\n        uint256 tokenId\\r\\n    ) external view returns (Listing memory) {\\r\\n        return s_listing[nftAddress][tokenId];\\r\\n    }\\r\\n\\r\\n    function getProceeds(address seller) external view returns (uint256) {\\r\\n        return s_proceeds[seller];\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x900673b3325a989c8d3e932dfde4333787fffa048516e4b4dd4bcc0ae1a9050d\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50611511806100206000396000f3fe6080604052600436106100705760003560e01c80639038e6931161004e5780639038e693146101185780639f37092a1461012f578063b2ddee061461014b578063f772adf11461017457610070565b806330cfeda91461007557806388700d1c146100b257806389bfd38f146100ef575b600080fd5b34801561008157600080fd5b5061009c600480360381019061009791906111a5565b61019d565b6040516100a991906113be565b60405180910390f35b3480156100be57600080fd5b506100d960048036038101906100d491906111ff565b6101e6565b6040516100e691906113a3565b60405180910390f35b3480156100fb57600080fd5b506101166004803603810190610111919061123f565b6102b0565b005b34801561012457600080fd5b5061012d610717565b005b610149600480360381019061014491906111ff565b610881565b005b34801561015757600080fd5b50610172600480360381019061016d91906111ff565b610c89565b005b34801561018057600080fd5b5061019b6004803603810190610196919061123f565b610f73565b005b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549050919050565b6101ee611136565b6000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681525050905092915050565b828260008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152505090506000816000015111156103af576040517fe73d9a9c00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b858533600083905060008173ffffffffffffffffffffffffffffffffffffffff16636352211e856040518263ffffffff1660e01b81526004016103f291906113be565b60206040518083038186803b15801561040a57600080fd5b505afa15801561041e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061044291906111d2565b90508073ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff16146104a9576040517f6008b18300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600089116104e3576040517f5cfb724300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008b90503073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1663081812fc8d6040518263ffffffff1660e01b815260040161053891906113be565b60206040518083038186803b15801561055057600080fd5b505afa158015610564573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061058891906111d2565b73ffffffffffffffffffffffffffffffffffffffff16146105d5576040517f0342b49400000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60405180604001604052808b81526020013373ffffffffffffffffffffffffffffffffffffffff168152506000808e73ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008d81526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055509050508a8c73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fd547e933094f12a9159076970143ebe73234e64480317844b0dcb36117116de48d60405161070191906113be565b60405180910390a4505050505050505050505050565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905060008111610795576040517f803bc5a000000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060003373ffffffffffffffffffffffffffffffffffffffff168260405161080090611320565b60006040518083038185875af1925050503d806000811461083d576040519150601f19603f3d011682016040523d82523d6000602084013e610842565b606091505b505090508061087d576040517fcf4b99ac00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b5050565b818160008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815250509050600081600001511161097f576040517f3f10d16f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008060008773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000868152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152505090508060000151341015610a8e57858582600001516040517f095f0a54000000000000000000000000000000000000000000000000000000008152600401610a859392919061136c565b60405180910390fd5b3460016000836020015173ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610add91906113e4565b60016000836020015173ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055506000808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008681526020019081526020016000206000808201600090556001820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905550508573ffffffffffffffffffffffffffffffffffffffff166342842e0e826020015133886040518463ffffffff1660e01b8152600401610be693929190611335565b600060405180830381600087803b158015610c0057600080fd5b505af1158015610c14573d6000803e3d6000fd5b505050508573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f1d23a6255c78522601b841bc62d88a98b1e9a358d1b16957143effa889faa03c8360000151604051610c7991906113be565b60405180910390a3505050505050565b818133600083905060008173ffffffffffffffffffffffffffffffffffffffff16636352211e856040518263ffffffff1660e01b8152600401610ccc91906113be565b60206040518083038186803b158015610ce457600080fd5b505afa158015610cf8573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d1c91906111d2565b90508073ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff1614610d83576040517f6008b18300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b868660008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152505090506000816000015111610e81576040517f3f10d16f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000808b73ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008a81526020019081526020016000206000808201600090556001820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905550508973ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f9ba1a3cb55ce8d63d072a886f94d2a744f50cddf82128e897d0661f5ec6231588b604051610f5f91906113be565b60405180910390a350505050505050505050565b828260008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152505090506000816000015111611071576040517f3f10d16f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b836000808873ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600087815260200190815260200160002060000181905550848673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fd547e933094f12a9159076970143ebe73234e64480317844b0dcb36117116de48760405161112691906113be565b60405180910390a4505050505050565b604051806040016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b600081359050611175816114ad565b92915050565b60008151905061118a816114ad565b92915050565b60008135905061119f816114c4565b92915050565b6000602082840312156111bb576111ba6114a5565b5b60006111c984828501611166565b91505092915050565b6000602082840312156111e8576111e76114a5565b5b60006111f68482850161117b565b91505092915050565b60008060408385031215611216576112156114a5565b5b600061122485828601611166565b925050602061123585828601611190565b9150509250929050565b600080600060608486031215611258576112576114a5565b5b600061126686828701611166565b935050602061127786828701611190565b925050604061128886828701611190565b9150509250925092565b61129b8161143a565b82525050565b6112aa8161143a565b82525050565b60006112bd6000836113d9565b91506112c8826114aa565b600082019050919050565b6040820160008201516112e96000850182611302565b5060208201516112fc6020850182611292565b50505050565b61130b8161146c565b82525050565b61131a8161146c565b82525050565b600061132b826112b0565b9150819050919050565b600060608201905061134a60008301866112a1565b61135760208301856112a1565b6113646040830184611311565b949350505050565b600060608201905061138160008301866112a1565b61138e6020830185611311565b61139b6040830184611311565b949350505050565b60006040820190506113b860008301846112d3565b92915050565b60006020820190506113d36000830184611311565b92915050565b600081905092915050565b60006113ef8261146c565b91506113fa8361146c565b9250827fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0382111561142f5761142e611476565b5b828201905092915050565b60006114458261144c565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b600080fd5b50565b6114b68161143a565b81146114c157600080fd5b50565b6114cd8161146c565b81146114d857600080fd5b5056fea2646970667358221220e1caaec8c0660d9619bc5a0b1bc7eddbe0d2c2403256f87e9b22cafcaa846fa064736f6c63430008070033",
+  "deployedBytecode": "0x6080604052600436106100705760003560e01c80639038e6931161004e5780639038e693146101185780639f37092a1461012f578063b2ddee061461014b578063f772adf11461017457610070565b806330cfeda91461007557806388700d1c146100b257806389bfd38f146100ef575b600080fd5b34801561008157600080fd5b5061009c600480360381019061009791906111a5565b61019d565b6040516100a991906113be565b60405180910390f35b3480156100be57600080fd5b506100d960048036038101906100d491906111ff565b6101e6565b6040516100e691906113a3565b60405180910390f35b3480156100fb57600080fd5b506101166004803603810190610111919061123f565b6102b0565b005b34801561012457600080fd5b5061012d610717565b005b610149600480360381019061014491906111ff565b610881565b005b34801561015757600080fd5b50610172600480360381019061016d91906111ff565b610c89565b005b34801561018057600080fd5b5061019b6004803603810190610196919061123f565b610f73565b005b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549050919050565b6101ee611136565b6000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681525050905092915050565b828260008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152505090506000816000015111156103af576040517fe73d9a9c00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b858533600083905060008173ffffffffffffffffffffffffffffffffffffffff16636352211e856040518263ffffffff1660e01b81526004016103f291906113be565b60206040518083038186803b15801561040a57600080fd5b505afa15801561041e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061044291906111d2565b90508073ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff16146104a9576040517f6008b18300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600089116104e3576040517f5cfb724300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008b90503073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1663081812fc8d6040518263ffffffff1660e01b815260040161053891906113be565b60206040518083038186803b15801561055057600080fd5b505afa158015610564573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061058891906111d2565b73ffffffffffffffffffffffffffffffffffffffff16146105d5576040517f0342b49400000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60405180604001604052808b81526020013373ffffffffffffffffffffffffffffffffffffffff168152506000808e73ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008d81526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055509050508a8c73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fd547e933094f12a9159076970143ebe73234e64480317844b0dcb36117116de48d60405161070191906113be565b60405180910390a4505050505050505050505050565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905060008111610795576040517f803bc5a000000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190555060003373ffffffffffffffffffffffffffffffffffffffff168260405161080090611320565b60006040518083038185875af1925050503d806000811461083d576040519150601f19603f3d011682016040523d82523d6000602084013e610842565b606091505b505090508061087d576040517fcf4b99ac00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b5050565b818160008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815250509050600081600001511161097f576040517f3f10d16f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008060008773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000868152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152505090508060000151341015610a8e57858582600001516040517f095f0a54000000000000000000000000000000000000000000000000000000008152600401610a859392919061136c565b60405180910390fd5b3460016000836020015173ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054610add91906113e4565b60016000836020015173ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055506000808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008681526020019081526020016000206000808201600090556001820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905550508573ffffffffffffffffffffffffffffffffffffffff166342842e0e826020015133886040518463ffffffff1660e01b8152600401610be693929190611335565b600060405180830381600087803b158015610c0057600080fd5b505af1158015610c14573d6000803e3d6000fd5b505050508573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f1d23a6255c78522601b841bc62d88a98b1e9a358d1b16957143effa889faa03c8360000151604051610c7991906113be565b60405180910390a3505050505050565b818133600083905060008173ffffffffffffffffffffffffffffffffffffffff16636352211e856040518263ffffffff1660e01b8152600401610ccc91906113be565b60206040518083038186803b158015610ce457600080fd5b505afa158015610cf8573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d1c91906111d2565b90508073ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff1614610d83576040517f6008b18300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b868660008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152505090506000816000015111610e81576040517f3f10d16f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000808b73ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008a81526020019081526020016000206000808201600090556001820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905550508973ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f9ba1a3cb55ce8d63d072a886f94d2a744f50cddf82128e897d0661f5ec6231588b604051610f5f91906113be565b60405180910390a350505050505050505050565b828260008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000838152602001908152602001600020604051806040016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152505090506000816000015111611071576040517f3f10d16f00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b836000808873ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600087815260200190815260200160002060000181905550848673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fd547e933094f12a9159076970143ebe73234e64480317844b0dcb36117116de48760405161112691906113be565b60405180910390a4505050505050565b604051806040016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b600081359050611175816114ad565b92915050565b60008151905061118a816114ad565b92915050565b60008135905061119f816114c4565b92915050565b6000602082840312156111bb576111ba6114a5565b5b60006111c984828501611166565b91505092915050565b6000602082840312156111e8576111e76114a5565b5b60006111f68482850161117b565b91505092915050565b60008060408385031215611216576112156114a5565b5b600061122485828601611166565b925050602061123585828601611190565b9150509250929050565b600080600060608486031215611258576112576114a5565b5b600061126686828701611166565b935050602061127786828701611190565b925050604061128886828701611190565b9150509250925092565b61129b8161143a565b82525050565b6112aa8161143a565b82525050565b60006112bd6000836113d9565b91506112c8826114aa565b600082019050919050565b6040820160008201516112e96000850182611302565b5060208201516112fc6020850182611292565b50505050565b61130b8161146c565b82525050565b61131a8161146c565b82525050565b600061132b826112b0565b9150819050919050565b600060608201905061134a60008301866112a1565b61135760208301856112a1565b6113646040830184611311565b949350505050565b600060608201905061138160008301866112a1565b61138e6020830185611311565b61139b6040830184611311565b949350505050565b60006040820190506113b860008301846112d3565b92915050565b60006020820190506113d36000830184611311565b92915050565b600081905092915050565b60006113ef8261146c565b91506113fa8361146c565b9250827fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0382111561142f5761142e611476565b5b828201905092915050565b60006114458261144c565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b600080fd5b50565b6114b68161143a565b81146114c157600080fd5b50565b6114cd8161146c565b81146114d857600080fd5b5056fea2646970667358221220e1caaec8c0660d9619bc5a0b1bc7eddbe0d2c2403256f87e9b22cafcaa846fa064736f6c63430008070033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 2746,
+        "contract": "contracts/NftMarketplace.sol:NftMarketplace",
+        "label": "s_listing",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_mapping(t_uint256,t_struct(Listing)2713_storage))"
+      },
+      {
+        "astId": 2750,
+        "contract": "contracts/NftMarketplace.sol:NftMarketplace",
+        "label": "s_proceeds",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_mapping(t_uint256,t_struct(Listing)2713_storage))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(uint256 => struct NftMarketplace.Listing))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_uint256,t_struct(Listing)2713_storage)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_struct(Listing)2713_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct NftMarketplace.Listing)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Listing)2713_storage"
+      },
+      "t_struct(Listing)2713_storage": {
+        "encoding": "inplace",
+        "label": "struct NftMarketplace.Listing",
+        "members": [
+          {
+            "astId": 2710,
+            "contract": "contracts/NftMarketplace.sol:NftMarketplace",
+            "label": "price",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 2712,
+            "contract": "contracts/NftMarketplace.sol:NftMarketplace",
+            "label": "seller",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
