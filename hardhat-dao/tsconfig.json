@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "strict": true,
+      "esModuleInterop": true,
+      "outDir": "dist"
+    },
+    "include": ["./scripts", "./test", "./deploy", "./deploy-helpers"],
+    "files": ["./hardhat.config.ts"]
+  }
